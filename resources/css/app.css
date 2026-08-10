@@ -1,0 +1,107 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+        'Courier New', monospace;
+
+    --color-void: #080a09;
+    --color-panel: #0e1310;
+    --color-panel-2: #141a16;
+    --color-line: #1e2823;
+    --color-line-strong: #2c3a33;
+    --color-fg: #e6f1eb;
+    --color-fg-muted: #8ba299;
+    --color-fg-dim: #5c6f67;
+    --color-mint: #34d399;
+    --color-mint-strong: #6ee7b7;
+    --color-mint-dim: #0f2b21;
+    --color-cyan: #22d3ee;
+    --color-amber: #fbbf24;
+}
+
+@layer base {
+    body {
+        background-color: var(--color-void);
+        color: var(--color-fg);
+    }
+
+    ::selection {
+        background-color: var(--color-mint);
+        color: var(--color-void);
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--color-void);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--color-line-strong);
+        border-radius: 9999px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-fg-dim);
+    }
+}
+
+@layer components {
+    .bg-grid {
+        background-image:
+            linear-gradient(rgba(52, 211, 153, 0.06) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(52, 211, 153, 0.06) 1px, transparent 1px);
+        background-size: 42px 42px;
+        background-position: center top;
+    }
+
+    .glow-mint {
+        box-shadow: 0 0 60px -12px rgba(52, 211, 153, 0.45);
+    }
+
+    .glow-mint-sm {
+        box-shadow: 0 0 20px -6px rgba(52, 211, 153, 0.5);
+    }
+
+    .text-glow {
+        text-shadow: 0 0 18px rgba(52, 211, 153, 0.45);
+    }
+
+    .prompt::before {
+        content: '$ ';
+        color: var(--color-mint);
+    }
+
+    .caret {
+        display: inline-block;
+        width: 0.55em;
+        height: 1em;
+        background-color: var(--color-mint);
+        vertical-align: text-bottom;
+        margin-left: 0.15em;
+        animation: caret-blink 1s step-end infinite;
+    }
+}
+
+@keyframes caret-blink {
+    0%, 45% { opacity: 1; }
+    50%, 95% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes float-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.animate-float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+}
