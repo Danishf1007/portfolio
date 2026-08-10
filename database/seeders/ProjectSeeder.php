@@ -41,5 +41,27 @@ class ProjectSeeder extends Seeder
             'order' => 3,
             'featured' => true,
         ]);
+
+        Project::create([
+            'title' => 'HelpDesk',
+            'description' => "A full-stack IT helpdesk and asset management system. Employees submit support tickets with screenshot uploads and track their status, while admins assign, respond to, and monitor tickets against SLA targets.\n\nAdmin side includes workload-based auto-assignment, asset and contract management modules, a KPI dashboard built with Chart.js, and real-time notification polling. Backend is Node.js and Express on Supabase (PostgreSQL), secured with JWT authentication, bcrypt password hashing, Helmet, and XSS-Clean.",
+            'image_url' => null,
+            'github_url' => 'https://github.com/Danishf1007/HelpDesk',
+            'live_url' => null,
+            'technologies' => ['Node.js', 'Express', 'Supabase', 'JavaScript'],
+            'order' => 4,
+            'featured' => false,
+        ]);
+
+        Project::create([
+            'title' => 'iawebsite',
+            'description' => "A full company website built in PHP — About Us, Services, Products, Careers, Contact, and Gallery pages, backed by company profile documents and SEO groundwork (sitemap, robots.txt).\n\nA straightforward multi-page corporate site rather than a single-page app, built to give a business a complete web presence without a heavier framework.",
+            'image_url' => null,
+            'github_url' => 'https://github.com/Danishf1007/iawebsite',
+            'live_url' => null,
+            'technologies' => ['PHP', 'HTML', 'CSS'],
+            'order' => 5,
+            'featured' => false,
+        ]);
     }
 }
