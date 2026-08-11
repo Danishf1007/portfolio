@@ -8,6 +8,13 @@
         <div class="absolute -top-24 -right-24 w-96 h-96 bg-mint/10 rounded-full blur-3xl animate-float-slow"></div>
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 relative">
             <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-mint/30 bg-mint-dim font-mono text-xs text-mint">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-mint opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-mint"></span>
+                    </span>
+                    open to work — fresh graduate
+                </div>
                 <p class="font-mono text-mint text-sm mb-4 prompt">whoami</p>
                 <h1 class="text-4xl sm:text-6xl font-bold font-mono tracking-tight text-fg mb-6">
                     Wan Muhammad<br class="hidden sm:block"> Danish Aiman<span class="caret"></span>
@@ -68,6 +75,31 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+    @endif
+
+    <!-- Education -->
+    @if($education->count() > 0)
+        <section class="py-20 border-b border-line">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="font-mono text-mint text-sm mb-3">// education</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-fg mb-12">Background</h2>
+
+                <div class="max-w-3xl space-y-6">
+                    @foreach($education as $edu)
+                        <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 rounded-lg border border-line bg-panel p-6 hover:border-mint/50 transition-colors">
+                            <div class="font-mono text-mint text-sm whitespace-nowrap sm:pt-1">{{ $edu->start_year }}—{{ $edu->end_year }}</div>
+                            <div class="sm:border-l sm:border-line sm:pl-6">
+                                <h3 class="text-lg font-bold text-fg">{{ $edu->degree }}</h3>
+                                <p class="text-fg-muted text-sm mt-1">{{ $edu->institution }}</p>
+                                @if($edu->description)
+                                    <p class="text-fg-muted text-sm mt-3">{{ $edu->description }}</p>
+                                @endif
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </section>
