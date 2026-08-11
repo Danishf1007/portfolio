@@ -30,6 +30,10 @@
                     <a href="#contact" class="inline-flex items-center gap-2 border border-line px-6 py-3 rounded-md text-fg hover:border-mint hover:text-mint transition-colors">
                         get-in-touch
                     </a>
+                    <a href="{{ asset('Wan_Muhammad_Danish_Aiman_Resume.pdf') }}" download class="inline-flex items-center gap-2 border border-line px-6 py-3 rounded-md text-fg hover:border-mint hover:text-mint transition-colors">
+                        @include('partials.icon', ['name' => 'download', 'class' => 'w-4 h-4'])
+                        download-resume
+                    </a>
                 </div>
             </div>
         </div>
@@ -75,6 +79,48 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+    @endif
+
+    <!-- Experience -->
+    @if($experiences->count() > 0)
+        <section class="py-20 border-b border-line">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="font-mono text-mint text-sm mb-3">// experience</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-fg mb-12">Where I've worked</h2>
+
+                <div class="max-w-3xl space-y-8">
+                    @foreach($experiences as $exp)
+                        <div class="rounded-lg border border-line bg-panel overflow-hidden">
+                            <div class="flex items-center gap-2 px-4 py-3 border-b border-line bg-panel-2">
+                                <span class="flex gap-1.5">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-mint"></span>
+                                </span>
+                                <span class="font-mono text-xs text-fg-dim ml-1">{{ Str::slug($exp->company) }}.log</span>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-1">
+                                    <h3 class="text-lg font-bold text-fg">{{ $exp->role }}</h3>
+                                    <span class="font-mono text-mint text-xs whitespace-nowrap">{{ $exp->start_date }} — {{ $exp->end_date ?? 'Present' }}</span>
+                                </div>
+                                <p class="text-fg-muted text-sm mb-4">{{ $exp->company }}</p>
+                                @if($exp->bullets)
+                                    <ul class="space-y-2">
+                                        @foreach($exp->bullets as $bullet)
+                                            <li class="flex gap-2 text-sm text-fg-muted leading-relaxed">
+                                                <span class="text-mint shrink-0">▹</span>
+                                                <span>{{ $bullet }}</span>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </section>

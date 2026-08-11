@@ -27,7 +27,11 @@
                 <div class="flex items-center gap-1 font-mono text-sm">
                     <a href="{{ route('portfolio.index') }}" class="px-3 py-2 rounded-md text-fg-muted hover:text-mint hover:bg-panel transition-colors">home</a>
                     <a href="{{ route('projects.index') }}" class="px-3 py-2 rounded-md text-fg-muted hover:text-mint hover:bg-panel transition-colors">projects</a>
-                    <a href="{{ route('portfolio.index') }}#contact" class="px-3 py-2 rounded-md text-fg-muted hover:text-mint hover:bg-panel transition-colors">contact</a>
+                    <a href="{{ route('portfolio.index') }}#contact" class="px-3 py-2 rounded-md text-fg-muted hover:text-mint hover:bg-panel transition-colors hidden sm:inline-block">contact</a>
+                    <a href="{{ asset('Wan_Muhammad_Danish_Aiman_Resume.pdf') }}" download class="ml-1 inline-flex items-center gap-1.5 px-3 py-2 rounded-md border border-mint/30 text-mint hover:bg-mint-dim transition-colors">
+                        @include('partials.icon', ['name' => 'download', 'class' => 'w-3.5 h-3.5'])
+                        resume
+                    </a>
                 </div>
             </div>
         </div>
